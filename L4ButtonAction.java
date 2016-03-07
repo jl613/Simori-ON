@@ -12,8 +12,8 @@ public class L4ButtonAction extends JButton
 	/**
 	* Method for what happens when the L4 button is selected.
 	* @param running		if the on button has been pressed.
-	* @author Billy & Jack N
-	* @version 1.0 (20/02/16)
+	* @author George
+	* @version 1.0 (07/03/16)
 	*/
 	
 	public L4ButtonAction()
@@ -32,6 +32,11 @@ public class L4ButtonAction extends JButton
 			CustomToggle.loopPointSelect = true;
 			new ClearGUI(); //clears the currently selected buttons
 			
+			//select vertical line
+
+			//print index to text box
+
+			//
 			
 		}
 	}
