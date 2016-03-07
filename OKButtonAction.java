@@ -21,7 +21,8 @@ public class OKButtonAction extends JButton {
 	//used to set the loops speed in music player
 	public static int loopSpeed;
 	public OKButtonAction() {
-
+		LayerThread layer = new LayerThread();
+		layer = SimoriON.layers.get(SimoriON.currentLayer - 1);
 		//if the user is currently selecting an instrument
 		if (CustomToggle.instrumentSelect == true) {
 			//change the instrument of musicplayer to the chosen one
@@ -30,7 +31,7 @@ public class OKButtonAction extends JButton {
 			new ClearGUI();
 			//restart the layer
 			SimoriON.running=true;
-			SimoriON.layer1.start();
+			layer.start();
 			CustomToggle.instrumentSelect = false;
 			
 		//if the used is currently selecting velocity	
@@ -42,7 +43,7 @@ public class OKButtonAction extends JButton {
 			new ClearGUI();
 			//restart the layer
 			SimoriON.running=true;
-			SimoriON.layer1.start();
+			layer.start();
 			CustomToggle.velocitySelect = false;
 
 		//if the used is currently selecting loop speed
@@ -53,17 +54,17 @@ public class OKButtonAction extends JButton {
 			new ClearGUI();
 			//retart the layer
 			SimoriON.running=true;
-			SimoriON.layer1.start();
+			layer.start();
 			CustomToggle.loopSpeedSelect = false;
 		}  else if (CustomToggle.loopPointSelect == true) {
 			new ClearGUI();
 			SimoriON.running=true;
-			SimoriON.layer1.start();
+			layer.start();
 			CustomToggle.loopPointSelect = false;
 		} else if (CustomToggle.selectLayer == true) {
 			new ClearGUI();
 			SimoriON.running=true;
-			SimoriON.layer1.start();
+			layer.start();
 			CustomToggle.selectLayer = false;
 		}
 	}

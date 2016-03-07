@@ -18,7 +18,7 @@ public class ClearGUI extends JButton
 		
 		for (int j = 0; j < 16; j++){
 			for (int i = 0; i < 16; i++){
-				SimoriON.boolArr[i][j] = false;
+				//SimoriON.boolArr[i][j] = false;
 				SimoriON.buttonArray[i][j].setSelected(false);
 			}
 		}	

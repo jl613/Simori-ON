@@ -14,11 +14,12 @@ import javax.swing.border.*;
  */
 public class SimoriON extends JFrame{
 	
-	public static boolean[][] boolArr = new boolean[16][16]; //used to store the live or off values for each button 
+	
 	public static boolean running = false;
 	public static CustomToggle[][] buttonArray = new CustomToggle[16][16];
 	private static int gridSize = 16;
-	public static LayerThread layer1 = new LayerThread();
+	public static int currentLayer = 1; //holds the number layer which is currently being tweaked
+	public static ArrayList<LayerThread> layers = new ArrayList<LayerThread>();
 	private CustomButton l1;
 	private CustomButton l2;
 	private CustomButton l3;
@@ -166,6 +167,7 @@ public class SimoriON extends JFrame{
 	public static void main(String[] args)
     	{
     		JFrame frame = new SimoriON();
+    		
 			frame.addWindowListener(new WindowAdapter() {
     			public void windowClosing(WindowEvent e) {
         		 	System.exit(1);

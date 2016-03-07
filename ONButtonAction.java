@@ -23,7 +23,12 @@ public class ONButtonAction extends JButton
 			//for each button in the grid of toggle buttons
 			new ClearGUI();
 			SimoriON.running=true;
-			SimoriON.layer1.start();	
+			for (int i = 0; i < 16; i++) {
+				LayerThread layer = new LayerThread();
+				layer.start();
+				layer.layerNo = i + 1;
+				SimoriON.layers.add(layer);
+			}
 		}
 
 		else if(SimoriON.running==true)

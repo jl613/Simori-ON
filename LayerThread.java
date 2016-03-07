@@ -15,7 +15,8 @@ import javax.swing.border.*;
 */
     	
 public class LayerThread implements Runnable   {
-    
+    public static boolean[][] boolArr = new boolean[16][16]; //used to store the live or off values for each button 
+    static int layerNo;
 	/**
 	* a no argument constructor that creates an instance of a thread, that represents a layer.
 	* @author Jack L & George 
@@ -66,14 +67,13 @@ public class LayerThread implements Runnable   {
 					//someone neaten/rewrite music player
 					
 					if (i % 5 == 0 && SimoriON.running == true) {
-
 						SimoriON.buttonArray[i][j].setSelected(true);
 					} else if (SimoriON.running==false) {
 						break outerLoop;
 					}
 							
 					//if the toggle button is turned on then add it's note value to a chord (ArrayList)
-					if (SimoriON.boolArr[i][j] == true && SimoriON.running == true) {
+					if (boolArr[i][j] == true && SimoriON.running == true) {
 						chord.add(15-i);						
 					}
 					else if(SimoriON.running==false){
@@ -98,7 +98,7 @@ public class LayerThread implements Runnable   {
 					SimoriON.buttonArray[i * 5][j].setSelected(false);
 				}
 				for (int i = 0; i < 16; i++) {
-					if (SimoriON.boolArr[i][j] == true) {
+					if (boolArr[i][j] == true && layerNo == SimoriON.currentLayer) {
 						SimoriON.buttonArray[i][j].setSelected(true);
 					}
 				}

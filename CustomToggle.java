@@ -22,7 +22,7 @@ public class CustomToggle extends JToggleButton
 	public static boolean selectLayer = false; // used to check whether the user wants to select a different layer
 
 	/**
-	* This two-argument constructor creates instances with custom size and colour.
+	* This two-argument constructor creates instances with https://www.youtube.com/watch?v=oy4n88CjiBYcustom size and colour.
 	*
 	* @param i 	x cooridinate of the button's postion in the grid.
 	* @param j 	y cooridinate of the button's postion in the grid.
@@ -51,10 +51,13 @@ public class CustomToggle extends JToggleButton
 				JToggleButton toggledbtn = (JToggleButton) ae.getSource();
 				if(SimoriON.running==true)				
 				{
-					SimoriON.boolArr[i][j] = false;
+					LayerThread layer = new LayerThread();
+					layer = SimoriON.layers.get(SimoriON.currentLayer - 1);
+
+					layer.boolArr[i][j] = false;
 					if (toggledbtn.isSelected()) 
 					{
-						SimoriON.boolArr[i][j] = true;
+						layer.boolArr[i][j] = true;
 					}
 
 				//if the layer isn't currently running then perform checks on whether the users has pressed any L or R buttons
